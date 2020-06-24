@@ -3,10 +3,12 @@ package com.thoughtworks.capability.gtb.demospringconfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(properties = {"levelNumber=2"})
+@SpringBootTest()
+@TestPropertySource(properties = {"levelNumber=2"})
 class DemoSpringConfigApplicationTests {
 
 	@Autowired
@@ -21,7 +23,8 @@ class DemoSpringConfigApplicationTests {
 
 }
 
-@SpringBootTest(properties = {"levelNumber=1"})
+@SpringBootTest()
+@TestPropertySource(properties = {"levelNumber=1"})
 class extend1 extends DemoSpringConfigApplicationTests {
 
 	@Autowired
@@ -35,7 +38,9 @@ class extend1 extends DemoSpringConfigApplicationTests {
 	}
 
 }
-@SpringBootTest(properties = {"levelNumber=0"})
+
+@TestPropertySource(properties = {"levelNumber=0"})
+@SpringBootTest()
 class extend2 extends DemoSpringConfigApplicationTests {
 
 	@Autowired
